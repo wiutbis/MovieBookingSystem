@@ -1,0 +1,20 @@
+@model List<ChinookWebApp.Models.Artist>
+
+<h2>Artists List</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Artist ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var artist in Model)
+        {
+                <tr>
+                    <td>@artist.ArtistId</td>
+                    <td>@artist.Name</td>
+                </tr>
+        }
+    </tbody>
+</table>

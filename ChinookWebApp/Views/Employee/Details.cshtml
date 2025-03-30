@@ -1,0 +1,24 @@
+@model ChinookWebApp.Models.Employee
+
+<h2>Employee Details</h2>
+
+<div>
+    <dl>
+        <dt>Employee ID</dt>
+        <dd>@Model.EmployeeId</dd>
+        <dt>First Name</dt>
+        <dd>@Model.FirstName</dd>
+        <dt>Last Name</dt>
+        <dd>@Model.LastName</dd>
+        <dt>Title</dt>
+        <dd>@Model.Title</dd>
+        <dt>Reports To</dt>
+        <dd>@Model.ReportsTo</dd>
+        <dt>Birth Date</dt>
+        <dd>@Model.BirthDate?.ToShortDateString()</dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.EmployeeId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>

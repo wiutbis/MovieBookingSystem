@@ -1,0 +1,50 @@
+@model X.PagedList.IPagedList<ChinookWebApp.Models.Song>
+@using X.PagedList.Mvc.Core;
+
+<h2>Songs List</h2>
+<!-- Filter Form -->
+<form method="get" asp-action="Index">
+    <div>
+        <label for="songName">Song Name:</label>
+        <input type="text" id="songName" name="songName" value="@ViewBag.SongNameFilter"
+            placeholder="Enter song name" />
+    </div>
+    <div>
+        <label for="artistName">Artist Name:</label>
+        <input type="text" id="artistName" name="artistName" value="@ViewBag.ArtistNameFilter"
+            placeholder="Enter artist name" />
+    </div>
+    <div>
+        <button type="submit">Filter</button>
+    </div>
+</form>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Song ID</th>
+            <th>Song Name</th>
+            <th>Album Name</th>
+            <th>Artist Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var song in Model)
+        {
+            <tr>
+                <td>@song.SongId</td>
+                <td>@song.SongName</td>
+                <td>@song.AlbumName</td>
+                <td>@song.ArtistName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new {
+    page,
+    songName = ViewBag.SongNameFilter,
+    artistName = ViewBag.ArtistNameFilter
+        }))
+</div>

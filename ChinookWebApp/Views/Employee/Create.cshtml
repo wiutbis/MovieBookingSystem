@@ -1,0 +1,35 @@
+@model ChinookWebApp.Models.Employee
+
+<h2>Create New Employee</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" />
+        <span asp-validation-for="FirstName"></span>
+    </div>
+    <div>
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+    <div>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+        <span asp-validation-for="Title"></span>
+    </div>
+    <div>
+        <label asp-for="ReportsTo"></label>
+        <input asp-for="ReportsTo" />
+        <span asp-validation-for="ReportsTo"></span>
+    </div>
+    <div>
+        <label asp-for="BirthDate"></label>
+        <input asp-for="BirthDate" type="date" />
+        <span asp-validation-for="BirthDate"></span>
+    </div>
+    <button type="submit">Create</button>
+</form>
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>
